@@ -14,19 +14,20 @@ class Object
 
   def lambertian_shading(light, l)
     nxl = @normal.esc(l)
-    puts nxl
     maxi = [0, nxl].max
     kd = @diff_color
-    n1 = light.prod(maxi)
-    l = n1.prod_col(kd.r,kd.g,kd.b)
+    i = light.prod(maxi)
+    l = i.prod_col(kd.r,kd.g,kd.b)
   end
 
-  def lambertian_shadiang(lucecilla, l)
-    second_member = @normal.dot_product(l)
-    variable = [0, second_member].max
-    pri = lucecilla.multi(variable, variable, variable)
-    sec =pri.multi(@diff_color.red, @diff_color.green, @diff_color.blue)
-    color = Colorcito.new(sec.red, sec.green, sec.blue)
+  def blinn_phong_shading(light, h, l)
+    lamb_shad = lambertian_shading(light, l)
+    nxh = @normal.esc(l)
+    maxi = [0, nxh].max
+    maxP = maxi**@specular_coef
+    i = light.prod(maxP)
+    ks = @specular_color.prod_col(i.r,i.g,i.b)
+    res = lamb_shad.sum(ks)
   end
 
   def normal(p)

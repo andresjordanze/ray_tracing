@@ -14,8 +14,8 @@ renderer = RayTracer.new(640, 480, e, pv, up, fov, df)
 
 sphere1 = Sphere.new(120, Vector3d.new(370.0, 120.0, 370.0))
 sphere1.diff_color = Color.new(0.156, 0.126, 0.506)
-sphere1.specular_color = Color.new(0.0, 0.0, 0.0)
-sphere1.specular_coef = 1.0
+sphere1.specular_color = Color.new(1.0, 1.0, 1.0)
+sphere1.specular_coef = 100.0
 
 sphere2 = Sphere.new(120, Vector3d.new(130.0, 100.0, 130.0))
 sphere2.diff_color = Color.new(0.656, 0.626, 0.107)

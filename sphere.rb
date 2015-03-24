@@ -5,7 +5,7 @@ class Sphere < Object
   attr_accessor :radius, :center
 
   def initialize(radius, center)
-    super(0.0, 0.0, 0.0)
+    super(Color.new(0.0,0.0,0.0), Color.new(0.0,0.0,0.0), 0.0)
     @radius = radius
     @center = center
   end
