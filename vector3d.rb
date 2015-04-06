@@ -50,5 +50,12 @@ class Vector3d
     z = @z * (1 / num)
     r = Vector3d.new(x,y,z)
   end
+
+  def sum1(n)
+    x = @x + n
+    y = @y + n
+    z = @z + n
+    r = Vector3d.new(x,y,z)
+  end
   
 end

@@ -1,11 +1,12 @@
 require_relative 'color'
 class Object
-  attr_accessor :diff_color, :specular_color, :specular_coef, :normal
+  attr_accessor :diff_color, :specular_color, :specular_coef, :normal, :mirror_coef
 
   def initialize(dc, ds, coef)
     @diff_color = dc
     @specular_color = ds
     @specular_coef = coef
+    @mirror_coef = Vector3d.new(0.0,0.0,0.0)
     @normal = Vector3d.new(0.0,0.0,0.0)
   end
 
@@ -30,7 +31,7 @@ class Object
     res = lamb_shad.sum(ks)
   end
 
-  def normal(p)
+  def set_normal(p)
   end
 
 end
